@@ -5,7 +5,7 @@
 ![Codecov](https://img.shields.io/codecov/c/github/bgalek/devicedetect.svg?style=flat-square)
 ![GitHub Release Date](https://img.shields.io/github/release-date/bgalek/devicedetect.svg?style=flat-square)
 ![Scrutinizer code quality](https://img.shields.io/scrutinizer/g/bgalek/devicedetect.svg?style=flat-square)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bgalek_devicedetect&metric=alert_status)](https://sonarcloud.io/dashboard?id=bgalek_friendlyname)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bgalek_devicedetect&metric=alert_status)](https://sonarcloud.io/dashboard?id=bgalek_devicedetect)
 
 ## Why?
 When comes to user agent parsing and normalization, sometimes few simple regex matches are enough good.
