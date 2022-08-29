@@ -2,11 +2,11 @@ name: Build
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths-ignore:
       - 'README.md'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -41,6 +41,7 @@ jobs:
         uses: codecov/codecov-action@v1
         
       - name: Analyze with SonarCloud
+        if: github.ref == 'refs/heads/main'
         run: ./gradlew sonarqube -Dsonar.login=${SONAR_TOKEN} -Dsonar.projectKey=bgalek_devicedetect -Dsonar.organization=bgalek-github -Dsonar.host.url=https://sonarcloud.io
         env:  
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
