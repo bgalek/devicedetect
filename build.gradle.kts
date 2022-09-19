@@ -10,7 +10,7 @@ plugins {
     signing
     jacoco
     id("me.champeau.gradle.jmh") version "0.5.3"
-    id("pl.allegro.tech.build.axion-release") version "1.14.0"
+    id("pl.allegro.tech.build.axion-release") version "1.14.1"
     id("com.adarshr.test-logger") version "3.2.0"
     id("org.sonarqube") version "3.4.0.2513"
 }
