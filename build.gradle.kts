@@ -22,7 +22,7 @@ repositories {
 
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
-    jmh("nl.basjes.parse.useragent:yauaa:7.17.1")
+    jmh("nl.basjes.parse.useragent:yauaa:7.18.0")
 }
 
 group = "com.github.bgalek.utils"
