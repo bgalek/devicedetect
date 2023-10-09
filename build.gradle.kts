@@ -12,7 +12,7 @@ plugins {
     id("me.champeau.gradle.jmh") version "0.5.3"
     id("pl.allegro.tech.build.axion-release") version "1.15.5"
     id("com.adarshr.test-logger") version "3.2.0"
-    id("org.sonarqube") version "4.4.0.3356"
+    id("org.sonarqube") version "4.4.1.3373"
 }
 
 repositories {
