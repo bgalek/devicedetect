@@ -41,7 +41,7 @@ jobs:
         run: ./gradlew jacocoTestReport
      
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         
       - name: Analyze with SonarCloud
         if: github.ref == 'refs/heads/main'
