@@ -1,7 +1,7 @@
 # Java port of [varnish-devicedetect](https://github.com/varnishcache/varnish-devicedetect)
 > Simple, fast and 0 dependencies library for device detection. 
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bgalek/devicedetect/Build?style=flat-square)
+[![Build](https://github.com/bgalek/devicedetect/actions/workflows/build.yml/badge.svg)](https://github.com/bgalek/devicedetect/actions/workflows/build.yml)
 ![Codecov](https://img.shields.io/codecov/c/github/bgalek/devicedetect.svg?style=flat-square)
 ![GitHub Release Date](https://img.shields.io/github/release-date/bgalek/devicedetect.svg?style=flat-square)
 ![Scrutinizer code quality](https://img.shields.io/scrutinizer/g/bgalek/devicedetect.svg?style=flat-square)
