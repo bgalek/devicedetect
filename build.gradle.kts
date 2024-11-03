@@ -11,12 +11,12 @@ plugins {
     jacoco
     id("me.champeau.gradle.jmh") version "0.5.3"
     id("pl.allegro.tech.build.axion-release") version "1.18.14"
-    id("com.adarshr.test-logger") version "3.2.0"
-    id("org.sonarqube") version "5.1.0.4882"
+    id("com.adarshr.test-logger") version "4.0.0"
+    id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
+
 }
 
 repositories {
-    jcenter()
     mavenCentral()
 }
 
@@ -28,9 +28,14 @@ dependencies {
 group = "com.github.bgalek.utils"
 version = scmVersion.version
 
-configure<JavaPluginConvention> {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+java {
+    withSourcesJar()
+    withJavadocJar()
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
 tasks.jar {
@@ -41,33 +46,11 @@ tasks.jar {
 
 tasks.test {
     useJUnitPlatform()
-    testLogging {
-        exceptionFormat = TestExceptionFormat.FULL
-        events = setOf(FAILED, SKIPPED)
-    }
-}
-
-tasks.register<Jar>("sourcesJar") {
-    from(sourceSets.main.get().allJava)
-    archiveClassifier.set("sources")
-}
-
-tasks.register<Jar>("javadocJar") {
-    from(tasks.javadoc)
-    archiveClassifier.set("javadoc")
-}
-
-jacoco {
-    toolVersion = "0.8.6"
-    reportsDir = file("$buildDir/reports/jacoco")
 }
 
 tasks.jacocoTestReport {
     reports {
-        xml.isEnabled = true
-        xml.destination = file("$buildDir/reports/jacoco/report.xml")
-        csv.isEnabled = false
-        html.isEnabled = false
+        xml.required = true
     }
 }
 
@@ -76,8 +59,6 @@ publishing {
         create<MavenPublication>("sonatype") {
             artifactId = "devicedetect"
             from(components["java"])
-            artifact(tasks["sourcesJar"])
-            artifact(tasks["javadocJar"])
             versionMapping {
                 usage("java-api") {
                     fromResolutionOf("runtimeClasspath")
@@ -113,10 +94,6 @@ publishing {
     }
     repositories {
         maven {
-            credentials {
-                username = project.properties["ossrhUsername"] as String?
-                password = project.properties["ossrhPassword"] as String?
-            }
             val releasesRepoUrl = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
             val snapshotsRepoUrl = uri("https://oss.sonatype.org/content/repositories/snapshots/")
             url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
@@ -124,13 +101,22 @@ publishing {
     }
 }
 
-signing {
-    useGpgCmd()
-    sign(publishing.publications["sonatype"])
+nexusPublishing {
+    repositories {
+        sonatype {
+            username.set(System.getenv("SONATYPE_USERNAME"))
+            password.set(System.getenv("SONATYPE_PASSWORD"))
+        }
+    }
 }
 
-tasks.javadoc {
-    if (JavaVersion.current().isJava9Compatible) {
-        (options as StandardJavadocDocletOptions).addBooleanOption("html5", true)
+System.getenv("GPG_KEY_ID")?.let {
+    signing {
+        useInMemoryPgpKeys(
+            System.getenv("GPG_KEY_ID"),
+            System.getenv("GPG_PRIVATE_KEY"),
+            System.getenv("GPG_PRIVATE_KEY_PASSWORD")
+        )
+        sign(publishing.publications)
     }
 }
