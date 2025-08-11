@@ -10,7 +10,7 @@ plugins {
     signing
     jacoco
     id("me.champeau.gradle.jmh") version "0.5.3"
-    id("pl.allegro.tech.build.axion-release") version "1.19.0"
+    id("pl.allegro.tech.build.axion-release") version "1.19.1"
     id("com.adarshr.test-logger") version "4.0.0"
     id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
 
