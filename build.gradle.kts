@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
+    testImplementation("org.junit.jupiter:junit-jupiter:6.0.2")
     jmh("nl.basjes.parse.useragent:yauaa:8.0.0")
 }
 
