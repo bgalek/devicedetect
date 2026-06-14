@@ -21,6 +21,10 @@ dependencies {
     jmh("nl.basjes.parse.useragent:yauaa:8.1.1")
 }
 
+dependencyLocking {
+    lockAllConfigurations()
+}
+
 group = "com.github.bgalek.utils"
 version = scmVersion.version
 
