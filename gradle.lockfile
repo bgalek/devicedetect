@@ -2,12 +2,12 @@
 # Manual edits can break the build and are not advised.
 # This file is expected to be part of source control.
 # To regenerate this file, run: ./gradlew :dependencies --write-locks
-com.github.ben-manes.caffeine:caffeine:3.2.3=jmh,jmhCompileClasspath,jmhRuntimeClasspath
+com.github.ben-manes.caffeine:caffeine:3.2.4=jmh,jmhCompileClasspath,jmhRuntimeClasspath
 com.google.code.findbugs:jsr305:3.0.2=jmh,jmhCompileClasspath,jmhRuntimeClasspath
-com.google.errorprone:error_prone_annotations:2.43.0=jmh,jmhCompileClasspath,jmhRuntimeClasspath
+com.google.errorprone:error_prone_annotations:2.49.0=jmh,jmhCompileClasspath,jmhRuntimeClasspath
 net.sf.jopt-simple:jopt-simple:5.0.4=jmh,jmhCompileClasspath,jmhRuntimeClasspath
 nl.basjes.collections:prefixmap:2.1.0=jmh,jmhCompileClasspath,jmhRuntimeClasspath
-nl.basjes.parse.useragent:yauaa:8.1.1=jmh,jmhCompileClasspath,jmhRuntimeClasspath
+nl.basjes.parse.useragent:yauaa:8.2.0=jmh,jmhCompileClasspath,jmhRuntimeClasspath
 org.apache.commons:commons-math3:3.2=jmh,jmhCompileClasspath,jmhRuntimeClasspath
 org.apiguardian:apiguardian-api:1.1.2=testCompileClasspath
 org.jacoco:org.jacoco.agent:0.8.14=jacocoAgent,jacocoAnt
