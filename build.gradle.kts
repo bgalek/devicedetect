@@ -4,7 +4,7 @@ plugins {
     signing
     jacoco
     id("me.champeau.jmh") version "0.7.3"
-    id("org.sonarqube") version "7.4.0.8496"
+    id("org.sonarqube") version "7.5.0.8588"
     id("pl.allegro.tech.build.axion-release") version "1.21.3"
     id("com.adarshr.test-logger") version "4.0.0"
     id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
